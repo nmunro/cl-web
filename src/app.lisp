@@ -1,6 +1,14 @@
+(defpackage cl-web
+  (:use :cl)
+  (:import-from :cl-web/tron
+                :defroute)
+  (:import-from :cl-web/controllers
+		:index))
+
+(in-package cl-web)
+
 (defvar *app* (make-instance 'ningle:app))
 
-(setf (ningle:route *app* "/")
-      "Welcome to ningle!")
+(defroute *app* "/" #'index)
 
-(clack:clackup *app* :server :hunchentoot :address "0.0.0.0" :port 5000)
+*app*

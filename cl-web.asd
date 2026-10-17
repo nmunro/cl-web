@@ -5,12 +5,15 @@
   :description ""
   :depends-on (:ningle
                :clack
+	       :djula
 	       :clack-handler-hunchentoot
 	       :hunchentoot)
   :components ((:module "src"
                 :serial t
                 :components
-                ((:file "app"))))
+                ((:file "tron")
+		 (:file "controllers")
+		 (:file "app"))))
   :in-order-to ((test-op (test-op "cl-web/tests"))))
 
 (defsystem "cl-web/tests"
